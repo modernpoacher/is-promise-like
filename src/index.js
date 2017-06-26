@@ -4,8 +4,8 @@ export function isPromiseLike (p) { // null boop
     then: {
       constructor: t
     } = {}
-  } = p || {} // = null || {}
+  } = p || false
   return (
-    c === Promise /* is it a Promise? */ || (c === Object && t === Function) /* or is it a Promise-like object? */
+    c === Promise || (c === Object && t === Function)
   )
 }
