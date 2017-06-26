@@ -1,0 +1,36 @@
+{
+  "name": "is-promise-like",
+  "version": "0.0.1",
+  "description": "Identifies a Promise or an object with a Promise-like interface",
+  "main": "./index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "prepublish": "npm run build",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/modernpoacher/IsPromiseLike.git"
+  },
+  "license": "MIT",
+  "author": "Jonathan Perry for Modern Poacher Limited",
+  "engines": {
+    "node": ">=7.0.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-register": "^6.24.1",
+    "eslint": "^3.10.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
