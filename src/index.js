@@ -10,24 +10,3 @@ export function isPromiseLike (p) { // null boop
 
   return (then instanceof Function)
 }
-
-/*
-export function isPromise (p) { // null boop
-  const {
-    constructor
-  } = p || false
-
-  return (constructor === Promise)
-}
-
-export function isPromiseLike (p) { // null boop
-  if (isPromise(p)) return true
-  const {
-    then: {
-      constructor
-    } = {}
-  } = p || false
-
-  return (constructor === Function)
-}
-*/
