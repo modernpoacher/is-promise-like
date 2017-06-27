@@ -37,18 +37,13 @@ describe('isPromiseLike', () => {
         then () {}
       }
 
-      let s
-      let p
-      let o
-      let a
-      beforeEach(() => {
-        s = new S()
-        p = new I()
-        o = {}
-        o.then = () => {}
-        a = []
-        a.then = () => {}
-      })
+      const s = new S()
+      const i = new I()
+      const o = {}
+      const a = []
+
+      o.then = () => {}
+      a.then = () => {}
 
       it('Can be invoked with static methods on an uninstantiated class', () => {
         expect(isPromiseLike(S))
@@ -66,7 +61,7 @@ describe('isPromiseLike', () => {
       })
 
       it('Can be invoked with methods on an instantiated class', () => {
-        expect(isPromiseLike(p))
+        expect(isPromiseLike(i))
           .to.be.true
       })
 
@@ -92,6 +87,12 @@ describe('isPromiseLike', () => {
     })
 
     describe('Which are not Promise-like', () => {
+      class C {}
+
+      const a = () => {}
+      const f = function () {}
+      const c = new C()
+
       it('Can be invoked implicitly with "undefined"', () => {
         expect(isPromiseLike())
           .to.be.false
@@ -133,27 +134,17 @@ describe('isPromiseLike', () => {
       })
 
       it('Can be invoked with an arrow function', () => {
-        expect(isPromiseLike(() => {}))
+        expect(isPromiseLike(a))
           .to.be.false
       })
 
       it('Can be invoked with a function definition', () => {
-        expect(isPromiseLike(function () {}))
+        expect(isPromiseLike(f))
           .to.be.false
       })
 
       it('Can be invoked with a constructed instance', () => {
-        expect(isPromiseLike(new (function () {})))
-          .to.be.false
-      })
-
-      it('Can be invoked with an object literal', () => {
-        expect(isPromiseLike({}))
-          .to.be.false
-      })
-
-      it('Can be invoked with an array literal', () => {
-        expect(isPromiseLike([]))
+        expect(isPromiseLike(c))
           .to.be.false
       })
     })
