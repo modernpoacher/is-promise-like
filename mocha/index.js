@@ -1,4 +1,5 @@
 /* eslint-env node, mocha */
+/* eslint no-unused-expressions: 0 */
 
 import {
   expect
@@ -6,7 +7,7 @@ import {
 
 import {
   isPromiseLike
-} from '../../src'
+} from '../src'
 
 describe('isPromiseLike', () => {
   describe('Invoked with Promise instances', () => {
