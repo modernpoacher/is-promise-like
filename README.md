@@ -48,14 +48,14 @@ All of the preceding examples returning `true`. In addition:
 
 ```
 class S { 
-  static then () { }
+  static then () {}
 } 
 
 isPromiseLike(S) // true
 ```
 ```
 class S { 
-  then () { }
+  then () {}
 } 
 
 const s = new S()
