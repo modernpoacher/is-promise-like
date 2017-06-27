@@ -1,5 +1,5 @@
 /* eslint-env node, mocha */
-/* eslint no-unused-expressions: 0 */
+/* eslint no-unused-expressions: 0, no-new-wrappers: 0 */
 
 import {
   expect
@@ -93,6 +93,12 @@ describe('isPromiseLike', () => {
       const f = function () {}
       const c = new C()
 
+      const s = new String()
+      const n = new Number()
+      const b = new Boolean()
+      const d = new Date()
+      const x = new RegExp()
+
       it('Can be invoked implicitly with "undefined"', () => {
         expect(isPromiseLike())
           .to.be.false
@@ -133,6 +139,11 @@ describe('isPromiseLike', () => {
           .to.be.false
       })
 
+      it('Can be invoked with a string literal', () => {
+        expect(isPromiseLike(''))
+          .to.be.false
+      })
+
       it('Can be invoked with an arrow function', () => {
         expect(isPromiseLike(a))
           .to.be.false
@@ -145,6 +156,31 @@ describe('isPromiseLike', () => {
 
       it('Can be invoked with a constructed instance', () => {
         expect(isPromiseLike(c))
+          .to.be.false
+      })
+
+      it('Can be invoked with a string instance', () => {
+        expect(isPromiseLike(s))
+          .to.be.false
+      })
+
+      it('Can be invoked with a number instance', () => {
+        expect(isPromiseLike(n))
+          .to.be.false
+      })
+
+      it('Can be invoked with a boolean instance', () => {
+        expect(isPromiseLike(b))
+          .to.be.false
+      })
+
+      it('Can be invoked with a date instance', () => {
+        expect(isPromiseLike(d))
+          .to.be.false
+      })
+
+      it('Can be invoked with a regular expression instance', () => {
+        expect(isPromiseLike(x))
           .to.be.false
       })
     })
