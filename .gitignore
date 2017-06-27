@@ -1,4 +1,2 @@
 **/node_modules/**/*
-**/public/app/assets/js/**/*
-**/.sass-cache
 **/npm-debug.log

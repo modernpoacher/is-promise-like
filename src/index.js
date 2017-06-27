@@ -5,7 +5,6 @@ export function isPromiseLike (p) { // null boop
       constructor: t
     } = {}
   } = p || false
-  return (
-    c === Promise || (c === Object && t === Function)
-  )
+
+  return (c === Promise || t === Function)
 }
