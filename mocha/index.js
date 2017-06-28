@@ -9,6 +9,16 @@ import {
   isPromiseLike
 } from '../src'
 
+class S {
+  static then () {}
+}
+
+class I {
+  then () {}
+}
+
+class C {}
+
 describe('isPromiseLike', () => {
   describe('A function for identifying Promise instances and Promise-like objects', () => {
     it('Exists', () => {
@@ -35,14 +45,6 @@ describe('isPromiseLike', () => {
 
   describe('Invoked without Promise instances', () => {
     describe('Which are Promise-like', () => {
-      class S {
-        static then () {}
-      }
-
-      class I {
-        then () {}
-      }
-
       const s = new S()
       const i = new I()
       const o = {}
@@ -93,8 +95,6 @@ describe('isPromiseLike', () => {
     })
 
     describe('Which are not Promise-like', () => {
-      class C {}
-
       const a = () => {}
       const fA = function () {}
       function fB () {}
