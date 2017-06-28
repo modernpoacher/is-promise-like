@@ -10,18 +10,24 @@ import {
 } from '../src'
 
 describe('isPromiseLike', () => {
-  describe('Invoked with Promise instances', () => {
-    it('Can be invoked with a Promise instance', () => {
+  describe('A function for identifying Promise instances and Promise-like objects', () => {
+    it('Exists', () => {
+      expect(isPromiseLike)
+        .to.exist
+    })
+  })
+  describe('Invoked with a Promise instance', () => {
+    it('Can be invoked with "new Promise(() => {})"', () => {
       expect(isPromiseLike(new Promise(() => {})))
         .to.be.true
     })
 
-    it('Can be invoked with Promise.all([])', () => {
+    it('Can be invoked with "Promise.all([])"', () => {
       expect(isPromiseLike(Promise.all([])))
         .to.be.true
     })
 
-    it('Can be invoked with Promise.resolve({})', () => {
+    it('Can be invoked with "Promise.resolve({})"', () => {
       expect(isPromiseLike(Promise.resolve({})))
         .to.be.true
     })
@@ -90,7 +96,8 @@ describe('isPromiseLike', () => {
       class C {}
 
       const a = () => {}
-      const f = function () {}
+      const fA = function () {}
+      function fB () {}
       const c = new C()
 
       const s = new String()
@@ -149,8 +156,13 @@ describe('isPromiseLike', () => {
           .to.be.false
       })
 
+      it('Can be invoked with a function expression', () => {
+        expect(isPromiseLike(fA))
+          .to.be.false
+      })
+
       it('Can be invoked with a function definition', () => {
-        expect(isPromiseLike(f))
+        expect(isPromiseLike(fB))
           .to.be.false
       })
 
