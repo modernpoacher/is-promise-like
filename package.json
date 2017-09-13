@@ -1,12 +1,11 @@
 {
   "name": "is-promise-like",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.js",
   "scripts": {
     "build": "babel src -d lib --no-comments",
     "build:watch": "npm run build -- -w",
-    "prepare": "npm run build",
     "prepublishOnly": "npm run build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
