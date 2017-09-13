@@ -1,7 +1,6 @@
 {
   "compact": true,
   "presets": [
-    "es2015",
-    "babili"
+    "env"
   ]
 }
