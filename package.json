@@ -1,6 +1,6 @@
 {
   "name": "is-promise-like",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/modernpoacher/IsPromiseLike.git"
+    "url": "git@github.com/modernpoacher/is-promise-like.git"
   },
   "license": "MIT",
   "author": "Jonathan Perry for Modern Poacher Limited",
