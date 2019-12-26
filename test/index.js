@@ -26,6 +26,7 @@ describe('isPromiseLike', () => {
         .to.exist
     })
   })
+
   describe('Invoked with a Promise instance', () => {
     it('Can be invoked with "new Promise(() => {})"', () => {
       expect(isPromiseLike(new Promise(() => {})))
