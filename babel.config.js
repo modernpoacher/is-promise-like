@@ -11,5 +11,14 @@ module.exports = {
         corejs: 3
       }
     ]
+  ],
+  plugins: [
+    [
+      'module-resolver', {
+        alias: {
+          '~': '.'
+        }
+      }
+    ]
   ]
 }

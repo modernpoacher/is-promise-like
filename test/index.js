@@ -1,13 +1,10 @@
-/* eslint-env node, mocha */
-/* eslint no-unused-expressions: 0, no-new-wrappers: 0 */
-
 import {
   expect
 } from 'chai'
 
 import {
   isPromiseLike
-} from '../src'
+} from '~/src'
 
 class S {
   static then () {}
@@ -21,27 +18,27 @@ class C {}
 
 describe('isPromiseLike', () => {
   describe('A function for identifying Promise instances and Promise-like objects', () => {
-    it('Exists', () => {
+    it('Exists', () => (
       expect(isPromiseLike)
         .to.exist
-    })
+    ))
   })
 
   describe('Invoked with a Promise instance', () => {
-    it('Can be invoked with "new Promise(() => {})"', () => {
+    it('Can be invoked with "new Promise(() => {})"', () => (
       expect(isPromiseLike(new Promise(() => {})))
         .to.be.true
-    })
+    ))
 
-    it('Can be invoked with "Promise.all([])"', () => {
+    it('Can be invoked with "Promise.all([])"', () => (
       expect(isPromiseLike(Promise.all([])))
         .to.be.true
-    })
+    ))
 
-    it('Can be invoked with "Promise.resolve({})"', () => {
+    it('Can be invoked with "Promise.resolve({})"', () => (
       expect(isPromiseLike(Promise.resolve({})))
         .to.be.true
-    })
+    ))
   })
 
   describe('Invoked without Promise instances', () => {
@@ -54,45 +51,45 @@ describe('isPromiseLike', () => {
       o.then = () => {}
       a.then = () => {}
 
-      it('Can be invoked with static methods on an uninstantiated class', () => {
+      it('Can be invoked with static methods on an uninstantiated class', () => (
         expect(isPromiseLike(S))
           .to.be.true
-      })
+      ))
 
-      it('Can be invoked with static methods on an instantiated class', () => {
+      it('Can be invoked with static methods on an instantiated class', () => (
         expect(isPromiseLike(s))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with methods on an uninstantiated class', () => {
+      it('Can be invoked with methods on an uninstantiated class', () => (
         expect(isPromiseLike(I))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with methods on an instantiated class', () => {
+      it('Can be invoked with methods on an instantiated class', () => (
         expect(isPromiseLike(i))
           .to.be.true
-      })
+      ))
 
-      it('Can be invoked with methods on an object literal', () => {
+      it('Can be invoked with methods on an object literal', () => (
         expect(isPromiseLike(o))
           .to.be.true
-      })
+      ))
 
-      it('Can be invoked with an object literal', () => {
+      it('Can be invoked with an object literal', () => (
         expect(isPromiseLike({}))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with methods on an array literal', () => {
+      it('Can be invoked with methods on an array literal', () => (
         expect(isPromiseLike(a))
           .to.be.true
-      })
+      ))
 
-      it('Can be invoked with an array literal', () => {
+      it('Can be invoked with an array literal', () => (
         expect(isPromiseLike([]))
           .to.be.false
-      })
+      ))
     })
 
     describe('Which are not Promise-like', () => {
@@ -107,95 +104,95 @@ describe('isPromiseLike', () => {
       const d = new Date()
       const x = new RegExp()
 
-      it('Can be invoked implicitly with "undefined"', () => {
+      it('Can be invoked implicitly with "undefined"', () => (
         expect(isPromiseLike())
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked explicitly with "undefined"', () => {
+      it('Can be invoked explicitly with "undefined"', () => (
         expect(isPromiseLike(undefined))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with "null"', () => {
+      it('Can be invoked with "null"', () => (
         expect(isPromiseLike(null))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a positive integer', () => {
+      it('Can be invoked with a positive integer', () => (
         expect(isPromiseLike(+1))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a negative integer', () => {
+      it('Can be invoked with a negative integer', () => (
         expect(isPromiseLike(-1))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with zero', () => {
+      it('Can be invoked with zero', () => (
         expect(isPromiseLike(0))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with "true"', () => {
+      it('Can be invoked with "true"', () => (
         expect(isPromiseLike(true))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with "false"', () => {
+      it('Can be invoked with "false"', () => (
         expect(isPromiseLike(false))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a string literal', () => {
+      it('Can be invoked with a string literal', () => (
         expect(isPromiseLike(''))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with an arrow function', () => {
+      it('Can be invoked with an arrow function', () => (
         expect(isPromiseLike(a))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a function expression', () => {
+      it('Can be invoked with a function expression', () => (
         expect(isPromiseLike(fA))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a function definition', () => {
+      it('Can be invoked with a function definition', () => (
         expect(isPromiseLike(fB))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a constructed instance', () => {
+      it('Can be invoked with a constructed instance', () => (
         expect(isPromiseLike(c))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a string instance', () => {
+      it('Can be invoked with a string instance', () => (
         expect(isPromiseLike(s))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a number instance', () => {
+      it('Can be invoked with a number instance', () => (
         expect(isPromiseLike(n))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a boolean instance', () => {
+      it('Can be invoked with a boolean instance', () => (
         expect(isPromiseLike(b))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a date instance', () => {
+      it('Can be invoked with a date instance', () => (
         expect(isPromiseLike(d))
           .to.be.false
-      })
+      ))
 
-      it('Can be invoked with a regular expression instance', () => {
+      it('Can be invoked with a regular expression instance', () => (
         expect(isPromiseLike(x))
           .to.be.false
-      })
+      ))
     })
   })
 })
