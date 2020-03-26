@@ -45,12 +45,7 @@ jobs:
 workflows:
     build-and-test:
       jobs:
-        - test:
-            filters:
-              tags:
-                only: /^v.*/
-              branches:
-                only: master
+        - test
         - publish:
             requires:
               - test
