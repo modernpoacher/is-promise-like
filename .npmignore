@@ -1,0 +1,14 @@
+.DS_Store
+
+.circleci
+.github
+
+.editorconfig
+.eslintignore
+.eslintrc
+
+.gitignore
+
+# NPM
+.npmignore
+.npmrc
