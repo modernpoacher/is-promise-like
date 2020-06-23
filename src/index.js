@@ -2,14 +2,6 @@ const debug = require('debug')
 
 const log = debug('is-promise-like')
 
-const {
-  env: {
-    DEBUG = 'is-promise-like'
-  }
-} = process
-
-debug.enable(DEBUG)
-
 export function isPromise (p) {
   log('isPromise')
 

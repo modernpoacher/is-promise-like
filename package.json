@@ -4,8 +4,9 @@
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.js",
   "scripts": {
-    "prepare": "npm run clean && cross-env NODE_ENV=production npm run build",
+    "prepare": "cross-env NODE_ENV=production npm run build",
     "install": "npm run prepare",
+    "prebuild": "npm run clean",
     "build": "npm run babel",
     "build:watch": "npm run babel:watch",
     "clean": "rimraf lib",
@@ -26,9 +27,7 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "cross-env": "^7.0.2",
-    "debug": "^4.1.1",
-    "rimraf": "^3.0.2"
+    "debug": "^4.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
@@ -38,6 +37,7 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
     "eslint": "^7.3.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-import-resolver-babel-module": "^5.1.2",
@@ -46,7 +46,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.2.5",
-    "mocha": "^8.0.1"
+    "mocha": "^8.0.1",
+    "rimraf": "^3.0.2"
   },
   "husky": {
     "hooks": {
