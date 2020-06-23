@@ -13,7 +13,7 @@
     "babel:watch": "npm run babel -- -w",
     "lint": "eslint *.js src test",
     "lint:fix": "npm run lint -- --fix",
-    "test": "mocha test --recursive -r @babel/register --verbose",
+    "test": "cross-env NODE_ENV=test mocha test --recursive -r @babel/register --verbose",
     "pre-commit": "npm run lint && npm test && npm run build && git add lib"
   },
   "repository": {
