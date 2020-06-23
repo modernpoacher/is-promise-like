@@ -4,13 +4,17 @@
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.js",
   "scripts": {
-    "build": "babel src -d lib",
-    "build:watch": "npm run build -- -w",
-    "prepublishOnly": "npm run build",
+    "prepare": "npm run clean && cross-env NODE_ENV=production npm run build",
+    "install": "npm run prepare",
+    "build": "npm run babel",
+    "build:watch": "npm run babel:watch",
+    "clean": "rimraf lib",
+    "babel": "babel src -d lib",
+    "babel:watch": "npm run babel -- -w",
     "lint": "eslint *.js src test",
     "lint:fix": "npm run lint -- --fix",
     "test": "mocha test --recursive -r @babel/register --verbose",
-    "pre-commit": "npm run lint:fix && npm test && npm run build && git add lib"
+    "pre-commit": "npm run lint && npm test && npm run build && git add lib"
   },
   "repository": {
     "type": "git",
@@ -43,5 +47,10 @@
     "hooks": {
       "pre-commit": "npm run pre-commit"
     }
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "debug": "^4.1.1",
+    "rimraf": "^3.0.2"
   }
 }
