@@ -2,6 +2,8 @@ const debug = require('debug')
 
 const log = debug('is-promise-like')
 
+log('`is-promise-like` is awake')
+
 export function isPromise (p) {
   log('isPromise')
 
