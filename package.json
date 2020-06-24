@@ -4,15 +4,14 @@
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.js",
   "scripts": {
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "install": "npm run prepare",
+    "prepublishOnly": "cross-env NODE_ENV=production npm run build",
     "prebuild": "npm run clean",
     "build": "npm run babel",
     "build:watch": "npm run babel:watch",
     "clean": "rimraf lib",
     "babel": "babel src -d lib",
     "babel:watch": "npm run babel -- -w",
-    "lint": "eslint *.js src test",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "test": "cross-env NODE_ENV=test mocha test --recursive -r @babel/register --verbose",
     "pre-commit": "npm run lint && npm test && npm run build && git add lib"
@@ -22,6 +21,9 @@
     "url": "git@github.com/modernpoacher/is-promise-like.git"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">=12.8.1"
+  },
   "author": "Jonathan Perry for Modern Poacher Limited",
   "standard": {
     "parser": "babel-eslint"
