@@ -3,7 +3,7 @@
 For Node (`>=12.18.1`) and browsers (`last 2 versions`).
 
 ## Usage with JS
-```
+```javascript
 const {
   isPromise,
   isPromiseLike
