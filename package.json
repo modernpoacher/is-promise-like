@@ -3,6 +3,15 @@
   "version": "0.1.12",
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.js",
+  "author": "Jonathan Perry for Modern Poacher Limited <modernpoacher@modernpoacher.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.18.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/modernpoacher/is-promise-like.git"
+  },
   "scripts": {
     "prepublishOnly": "cross-env NODE_ENV=production npm run build",
     "prebuild": "npm run clean",
@@ -16,15 +25,6 @@
     "test": "cross-env NODE_ENV=test mocha test --recursive -r @babel/register --verbose",
     "pre-commit": "npm run lint && npm test && npm run build && git add lib"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com/modernpoacher/is-promise-like.git"
-  },
-  "license": "MIT",
-  "engines": {
-    "node": ">=12.18.1"
-  },
-  "author": "Jonathan Perry for Modern Poacher Limited",
   "dependencies": {
     "debug": "^4.1.1"
   },
