@@ -4,12 +4,9 @@ const log = debug('is-promise-like')
 
 const {
   env: {
-    DEBUG = 'is-promise-like',
     NODE_ENV = 'development'
   }
 } = process
-
-debug.enable(DEBUG)
 
 log('`is-promise-like` is awake')
 
