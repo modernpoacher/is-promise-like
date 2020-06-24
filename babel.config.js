@@ -25,7 +25,10 @@ const presets = [
   [
     '@babel/env', {
       targets: {
-        node: '12.18.1'
+        node: '12.18.1',
+        browsers: [
+          'last 2 versions'
+        ]
       },
       useBuiltIns: 'usage',
       corejs: 3
