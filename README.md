@@ -1,5 +1,7 @@
 # IsPromiseLike
 
+For Node (`>=12.18.1`) and browsers (`last 2 versions`).
+
 ## Usage with JS
 ```
 const {
@@ -9,7 +11,7 @@ const {
 ```
 
 ## Usage with ES
-```
+```javascript
 import {
   isPromise,
   isPromiseLike
@@ -18,23 +20,23 @@ import {
 
 `isPromise` identifies instances of the global `Promise` class.
 
-`isPromiseLike` identifies instances of the global `Promise` class, and other objects which are _like_ them.
+`isPromiseLike` identifies instances of the global `Promise` class or other objects which are _like_ them.
 
 ### Examples: `isPromise`
 
 Returns `true`:
 
-```
+```javascript
 const p = new Promise(() => {})
 
 isPromise(p) // true
 ```
-```
+```javascript
 const p = Promise.resolve({})
 
 isPromise(p) // true
 ```
-```
+```javascript
 const p = Promise.all([])
 
 isPromise(p) // true
@@ -46,14 +48,14 @@ Anything else should return `false`.
 
 All of the preceding examples returning `true`. In addition:
 
-```
+```javascript
 class S { 
   static then () {}
 } 
 
 isPromiseLike(S) // true
 ```
-```
+```javascript
 class S { 
   then () {}
 } 
@@ -62,13 +64,13 @@ const s = new S()
 
 isPromiseLike(s) // true
 ```
-```
+```javascript
 const o = {}
 o.then = () => {}
 
 isPromiseLike(o) // true
 ```
-```
+```javascript
 const a = []
 a.then = () => {}
 
