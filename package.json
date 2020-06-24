@@ -25,9 +25,6 @@
     "node": ">=12.18.1"
   },
   "author": "Jonathan Perry for Modern Poacher Limited",
-  "standard": {
-    "parser": "babel-eslint"
-  },
   "dependencies": {
     "debug": "^4.1.1"
   },
