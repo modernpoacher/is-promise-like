@@ -1,6 +1,6 @@
 {
   "name": "is-promise-like",
-  "version": "0.1.68",
+  "version": "0.1.69",
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.js",
   "author": "Jonathan Perry for Modern Poacher Limited <modernpoacher@modernpoacher.com>",
@@ -45,7 +45,7 @@
     "eslint-import-resolver-babel-module": "^5.3.1",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.1",
+    "eslint-plugin-promise": "^5.2.0",
     "gulp": "^4.0.2",
     "husky": "^7.0.4",
     "mocha": "^9.1.3",
