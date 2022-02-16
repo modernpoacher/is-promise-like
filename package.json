@@ -1,6 +1,6 @@
 {
   "name": "is-promise-like",
-  "version": "0.1.119",
+  "version": "0.1.120",
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.js",
   "author": "Jonathan Perry for Modern Poacher Limited <modernpoacher@modernpoacher.com>",
