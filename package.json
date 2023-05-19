@@ -1,52 +1,44 @@
 {
   "name": "is-promise-like",
   "version": "1.0.17",
+  "type": "module",
   "description": "Identifies a Promise or an object with a Promise-like interface",
-  "main": "./index.js",
+  "main": "./index.mjs",
   "author": "Jonathan Perry for Modern Poacher Limited <modernpoacher@modernpoacher.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=18.5.0"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com/modernpoacher/is-promise-like.git"
   },
   "scripts": {
-    "prepublishOnly": "cross-env NODE_ENV=production npm run build",
-    "prebuild": "npm run clean",
-    "build": "npm run babel",
-    "build:watch": "npm run babel:watch",
-    "clean": "rimraf lib",
-    "babel": "babel src -d lib",
-    "babel:watch": "npm run babel -- -w",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .mjs --ext .cjs",
     "lint:fix": "npm run lint -- --fix",
-    "test": "cross-env NODE_ENV=test mocha test --recursive -r @babel/register --verbose"
+    "test": "cross-env NODE_ENV=test mocha test --recursive --verbose",
+    "prepare": "npx husky install"
   },
   "dependencies": {
     "debug": "^4.3.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.21.5",
     "@babel/core": "^7.21.8",
     "@babel/eslint-parser": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
-    "@babel/register": "^7.21.0",
     "@modernpoacher/hooks": "^1.0.404",
-    "babel-loader": "^9.1.2",
-    "babel-plugin-module-resolver": "^5.0.0",
     "chai": "^4.3.7",
     "core-js": "^3.30.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.40.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-import-resolver-babel-module": "^5.3.2",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.3",
-    "mocha": "^10.2.0",
-    "rimraf": "^5.0.0"
+    "mocha": "^10.2.0"
+  },
+  "imports": {
+    "#is-promise-like": "./index.mjs"
   }
 }

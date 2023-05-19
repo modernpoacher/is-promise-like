@@ -4,7 +4,7 @@ import {
 
 import {
   isPromiseLike
-} from '~/src'
+} from '#is-promise-like'
 
 class S {
   static then () {}
