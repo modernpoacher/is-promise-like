@@ -1,14 +1,6 @@
 # IsPromiseLike
 
-## Usage with JS
-```javascript
-const {
-  isPromise,
-  isPromiseLike
-} = require('is-promise-like')
-```
-
-## Usage with ES
+## Usage
 ```javascript
 import {
   isPromise,
@@ -47,16 +39,16 @@ Anything else should return `false`.
 All of the preceding examples returning `true`. In addition:
 
 ```javascript
-class S { 
+class S {
   static then () {}
-} 
+}
 
 isPromiseLike(S) // true
 ```
 ```javascript
-class S { 
+class S {
   then () {}
-} 
+}
 
 const s = new S()
 
