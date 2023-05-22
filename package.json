@@ -1,9 +1,9 @@
 {
   "name": "is-promise-like",
   "version": "1.0.20",
-  "type": "module",
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.mjs",
+  "type": "module",
   "author": "Jonathan Perry for Modern Poacher Limited <modernpoacher@modernpoacher.com>",
   "license": "MIT",
   "engines": {
