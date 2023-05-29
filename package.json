@@ -1,6 +1,6 @@
 {
   "name": "is-promise-like",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "Identifies a Promise or an object with a Promise-like interface",
   "main": "./index.mjs",
   "type": "module",
